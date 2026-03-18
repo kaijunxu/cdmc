@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-template:
-- name: data_sensitivity
+aspect_type:
+- name: data-sensitivity
   display_name: "Data Sensitivity Template"
-  public: False
+  description: "Data Sensitivity Aspect Type"
   fields:
-    - field: sensitive_field
+    - field: sensitive-field
       type: bool
       display: "Sensitive field"
       description: "Field has sensitive information, such as PII"
       required: true
-      order: 1
-    - field: sensitive_type
+      order: 2
+    - field: sensitive-type
       type: enum
       values: Sensitive_Personal_Identifiable_Information|Personal_Identifiable_Information|Sensitive_Personal_Information|Personal_Information|Public_Information
       display: "Sensitive type"
       description: "Type or category of sensitive data"
       required: false
-      order: 0
+      order: 1

@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,37 +12,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-template:
-- name: impact_assessment
+aspect_type:
+- name: impact-assessment
   display_name: "Impact Assessment Template"
+  description: "Impact Assessment Aspect Type"
   fields:
-    - field: subject_locations
-      type: richtext
+    - field: subject-locations
+      type: string
       display: "Subject locations"
       description: "The location of the subjects referred to by the data in this asset (control 10)"
-      order: 5
-    - field: is_dpia
+      order: 6
+    - field: is-dpia
       type: bool
       display: "Is DPIA impact assessment"
       description: "Is there a DPIA assessment for this asset (control 10)"
-      order: 4
-    - field: is_pia
+      order: 5
+    - field: is-pia
       type: bool
       display: "Is PIA impact assessment"
       description: "Is there a PIA assessment for this asset (control 10)"
-      order: 3
-    - field: impact_assessment_reports
-      type: richtext
+      order: 4
+    - field: impact-assessment-reports
+      type: string
       display: "Impact assessment reports"
       description: "Links to the impact assessment reports (control 10)"
-      order: 2
-    - field: most_recent_assessment
+      order: 3
+    - field: most-recent-assessment
       type: datetime
       display: "Most recent impact assessment"
       description: "Date of the most recent assessment produced (control 10)"
-      order: 1
-    - field: oldest_assessment
+      order: 2
+    - field: oldest-assessment
       type: datetime
       display: "Oldest impact assessment"
       description: "Date of the oldest assessment produced (control 10)"
-      order: 0
+      order: 1

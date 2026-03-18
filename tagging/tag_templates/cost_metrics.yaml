@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,37 +12,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-template:
-- name: cost_metrics
+aspect_type:
+- name: cost-metrics
   display_name: "Cost Metrics Template"
+  description: "Cost Metrics Aspect Type"
   fields:
-    - field: total_query_bytes_billed
+    - field: total-query-bytes-billed
       type: double
       display: "Total query bytes billed"
       description: "Total query bytes billed for this data asset since start of current month (control 13)"
-      order: 5
-    - field: total_storage_bytes_billed
+      order: 6
+    - field: total-storage-bytes-billed
       type: double
       display: "Total storage bytes billed"
       description: "The storage bytes billed for this data asset, includes active and long-term physical storage (control 13)"
-      order: 4
-    - field: total_bytes_transferred
+      order: 5
+    - field: total-bytes-transferred
       type: double
       display: "Total bytes transferred"
       description: "The sum of bytes transferred cross-region into this data asset (control 13)"
-      order: 3
-    - field: estimated_query_cost
+      order: 4
+    - field: estimated-query-cost
       type: double
       display: "Estimated query cost"
       description: "Estimated query cost in USD for this data asset for current month (control 13)"
-      order: 2
-    - field: estimated_storage_cost
+      order: 3
+    - field: estimated-storage-cost
       type: double
       display: "Estimated storage cost"
       description: "Estimated storage cost in USD for this data asset for current month (control 13)"
-      order: 1
-    - field: estimated_egress_cost
+      order: 2
+    - field: estimated-egress-cost
       type: double
       display: "Estimated egress cost"
       description: "Estimated egress in USD for current month in which data asset was used as a destination table (control 13)"
-      order: 0
+      order: 1

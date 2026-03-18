@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,38 +12,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-template:
-- name: uniqueness_template
+aspect_type:
+- name: uniqueness-template
   display_name: "Uniqueness Template"
-  public: False
+  description: "Uniqueness Aspect Type"
   fields:
-    - field: column_name
+    - field: column-name
       type: string
       display: "column name"
       description: "The name of the column that this metric applies to"
       required: true
-      order: 4
+      order: 5
     - field: metric
       type: string
       display: "metric"
       description: "The name of the metric or quality rule (corresponds to the rule_id from the CloudDQ summary table)"
       required: false
-      order: 3
-    - field: rows_validated
+      order: 4
+    - field: rows-validated
       type: double
       display: "rows_validated"
       description: "The number of rows validated"
       required: false
-      order: 2
-    - field: success_percentage
+      order: 3
+    - field: success-percentage
       type: double
       display: "success_percentage"
       description: "The percentage of values which satisfy the metric"
       required: false
-      order: 1
-    - field: most_recent_run
-      type: timestamp
+      order: 2
+    - field: most-recent-run
+      type: datetime
       display: "most recent run"
       description: "The most recent time that the quality rule was run"
       required: false
-      order: 0
+      order: 1
