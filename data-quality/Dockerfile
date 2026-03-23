@@ -19,7 +19,8 @@ RUN pip install -U pip
 RUN pip install             \
     dbt-bigquery>=1.3.0     \
     dbt-core>=1.3.1         \
-    dbt-extractor>=0.4.1
+    dbt-extractor>=0.4.1    \
+    google-cloud-logging==2.7.0
 
 # Copy files to the image
 RUN mkdir /cloud-dq/
