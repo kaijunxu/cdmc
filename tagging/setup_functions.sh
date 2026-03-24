@@ -1,4 +1,4 @@
-# Copyright 2023 Google, LLC.
+# Copyright 2026 Google, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,10 +18,24 @@
 # Function names are consistent with folder names
 
 # Environment variables
+pushd ../
+source environment-variables.sh
+popd
+
+# Create the dataset and resource connection
+gcloud config set project $PROJECT_ID_GOV
+bq mk --location=$REGION --dataset remote_functions
+bq mk --connection \
+--display_name='remote function connection' \
+--connection_type=CLOUD_RESOURCE \
+--project_id=$PROJECT_ID_GOV \
+--location=$REGION remote-function-connection
+
+
 pushd remote_functions/bytes_transferred
-#Create the Cloud Function
+# Create the Cloud Function
 gcloud functions deploy get_bytes_transferred \
---runtime python37 \
+--runtime python314 \
 --trigger-http \
 --no-allow-unauthenticated \
 --ingress-settings internal-and-gclb \
@@ -33,9 +47,9 @@ source ./create_remote_function.sh
 popd
 
 pushd remote_functions/location_policy
-#Create the Cloud Function
+# Create the Cloud Function
 gcloud functions deploy get_location_policy \
---runtime python37 \
+--runtime python314 \
 --trigger-http \
 --no-allow-unauthenticated \
 --ingress-settings internal-and-gclb \
@@ -47,9 +61,9 @@ source ./create_remote_function.sh
 popd
 
 pushd remote_functions/masking_rule
-#Create the Cloud Function
+# Create the Cloud Function
 gcloud functions deploy get_masking_rule \
---runtime python37 \
+--runtime python314 \
 --trigger-http \
 --no-allow-unauthenticated \
 --ingress-settings internal-and-gclb \
@@ -61,9 +75,9 @@ source ./create_remote_function.sh
 popd
 
 pushd remote_functions/table_encryption_method
-#Create the Cloud Function
+# Create the Cloud Function
 gcloud functions deploy get_table_encryption_method \
---runtime python37 \
+--runtime python314 \
 --trigger-http \
 --no-allow-unauthenticated \
 --ingress-settings internal-and-gclb \
@@ -75,9 +89,9 @@ source ./create_remote_function.sh
 popd
 
 pushd remote_functions/ultimate_source
-#Create the Cloud Function
+# Create the Cloud Function
 gcloud functions deploy get_ultimate_source \
---runtime python37 \
+--runtime python314 \
 --trigger-http \
 --no-allow-unauthenticated \
 --ingress-settings internal-and-gclb \

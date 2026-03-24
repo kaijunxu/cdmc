@@ -27,11 +27,12 @@ python create_template.py $PROJECT_ID_DATA $REGION uniqueness_template.yaml
 cd ..
 ```
 
-2. Create the policy tag taxonomy:
+2. Create the policy tag taxonomy. Before running the `create_policy_tag_taxonomy.py` script, make sure you have created and customised your `taxonomy.yaml` file, using `taxonomy.yaml.example` as a template.
 
 ```
 cd policy_tags
 pip install -r requirements.txt
+cp taxonomy.yaml.example taxonomy.yaml
 python create_policy_tag_taxonomy.py taxonomy.yaml
 cd ..
 ```
@@ -41,6 +42,8 @@ cd ..
 3. Create and populate the policy tables:
 
 ```
+cd ddl
+gcloud config set project $PROJECT_ID_GOV
 bq mk --location=$REGION --dataset data_classification
 bq mk --location=$REGION --dataset data_retention
 bq mk --location=$REGION --dataset impact_assessment
@@ -53,6 +56,7 @@ bq query < create_impact_assessment_tables.sql
 bq query < create_populate_entitlement_tables.sql
 bq query < create_security_policy_tables.sql
 bq query < information_schema_view.sql
+cd ..
 ```
 
 4. Create the remote BigQuery functions

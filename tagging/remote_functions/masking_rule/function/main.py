@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright 2023 Google LLC
+# Copyright 2026 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ import base64
 import json
 import os
 from google.cloud import bigquery
-from google.cloud.bigquery import datapolicies
+from google.cloud import bigquery_datapolicies
 
 DATA_GOV_PROJECT = os.environ.get('PROJECT_ID_GOV')  # replace with your project id
 BIGQUERY_REGION = os.environ.get('REGION')               # replace with your GCP region

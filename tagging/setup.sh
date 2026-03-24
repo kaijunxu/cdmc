@@ -1,4 +1,4 @@
-# Copyright 2023 Google, LLC.
+# Copyright 2026 Google, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,24 +53,15 @@ popd
 
 
 echo -e "#### Part 2: Policy tables and remote functions"
-echo -e "Create and populate the policy tables"
+echo -e "3. Create and populate the policy tables"
 
-# Appply the tax templates
+# Appply the tag templates
 gcloud config set project $PROJECT_ID_GOV
 bq mk --location=$REGION --dataset data_classification
 bq mk --location=$REGION --dataset data_retention
 bq mk --location=$REGION --dataset impact_assessment
 bq mk --location=$REGION --dataset entitlement_management
 bq mk --location=$REGION --dataset security_policy
-bq mk --location=$REGION --dataset remote_functions
-
-# Create dlp results datasets
-bq mk --location=$REGION --dataset crm_dlp
-bq mk --location=$REGION --dataset finwire_dlp
-bq mk --location=$REGION --dataset hr_dlp
-bq mk --location=$REGION --dataset oltp_dlp
-bq mk --location=$REGION --dataset reference_dlp
-bq mk --location=$REGION --dataset sales_dlp
 
 # Create the tables
 pushd ddl
