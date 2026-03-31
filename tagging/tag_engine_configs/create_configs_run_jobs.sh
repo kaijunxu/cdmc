@@ -1,4 +1,4 @@
-# Copyright 2023 Google, LLC.
+# Copyright 2026 Google, LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,13 +13,7 @@
 # limitations under the License.
 
 
-## This script performs the basic setup tag engine
-
-export TAG_ENGINE_PROJECT=$PROJECT_ID_GOV
-gcloud config set project $TAG_ENGINE_PROJECT
-gcloud config set run/region $REGION
-
-export TAG_ENGINE_URL=`gcloud run services describe tag-engine --format="value(status.url)"`
+## This script performs the basic configuration of tag engine
 
 # Bearer token
 export IAM_TOKEN=$(gcloud auth print-identity-token)
@@ -28,11 +22,8 @@ export IAM_TOKEN=$(gcloud auth print-identity-token)
 #gcloud auth application-default login
 export OAUTH_TOKEN=$(gcloud auth application-default print-access-token)
 
-# configure tag history
-curl -X POST $TAG_ENGINE_URL/configure_tag_history \
-	-d "{"bigquery_region":"$REGION", "bigquery_project":"$PROJECT_ID_GOV", "bigquery_dataset":"$TAG_HISTORY_BIGQUERY_DATASET", "enabled":true}" \
-	-H "Authorization: Bearer $IAM_TOKEN" \
-	-H "oauth_token: $OAUTH_TOKEN"
+gcloud config set run/region $REGION
+export TAG_ENGINE_URL=`gcloud run services describe tag-engine-api --format="value(status.url)"`
 
 ##########################################
 # sensitive column tags (controls 6 and 7)

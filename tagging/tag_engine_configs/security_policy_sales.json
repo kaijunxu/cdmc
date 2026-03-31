@@ -1,7 +1,7 @@
 {
-    "template_id": "security_policy",
-    "template_project": "PROJECT_ID_GOV",
-    "template_region": "REGION",
+    "aspect_type_id": "security-policy",
+    "aspect_type_project": "PROJECT_ID_DATA",
+    "aspect_type_region": "REGION",
     "fields": [
         {
             "field_id": "platform_deid_method",
@@ -10,7 +10,8 @@
     ],
     "included_columns_query": "select distinct SUBSTR(asset_name, INSTR(asset_name, '/', -1)+1) from PROJECT_ID_GOV.tag_history_logs.data_sensitivity where CONTAINS_SUBSTR(asset_name, '$project/dataset/$dataset/table/$table')",
 	"included_tables_uris": "bigquery/project/PROJECT_ID_DATA/dataset/sales/*",
-    "refresh_mode": "ON_DEMAND",
-    "tag_history": true,
-    "tag_stream": false
+    "refresh_mode": "AUTO",
+    "refresh_frequency": 24,
+    "refresh_unit": "hours",
+    "tag_history": true
 }

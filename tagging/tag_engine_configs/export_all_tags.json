@@ -5,5 +5,7 @@
 	"target_dataset": "tag_exports",
 	"target_region": "REGION",
 	"write_option": "truncate",
-    "refresh_mode": "ON_DEMAND"
+    "refresh_mode": "AUTO",
+    "refresh_frequency": 24,
+    "refresh_unit": "hours"
 }

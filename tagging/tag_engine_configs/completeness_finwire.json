@@ -1,7 +1,7 @@
 {
-    "template_id": "completeness_template",
-    "template_project": "PROJECT_ID_GOV",
-    "template_region": "REGION",
+    "aspect_type_id": "completeness-template",
+    "aspect_type_project": "PROJECT_ID_DATA",
+    "aspect_type_region": "REGION",
     "fields": [
         {
             "field_id": "column_name",
@@ -34,7 +34,8 @@
     ],
     "included_columns_query": "select distinct column_id from PROJECT_ID_GOV.cloud_dq.dq_summary where dimension = 'COMPLETENESS' and ends_with(table_id, '$table')",
 	"included_tables_uris": "bigquery/project/PROJECT_ID_DATA/dataset/finwire/*",
-    "refresh_mode": "ON_DEMAND",
-    "tag_history": true,
-    "tag_stream": false
+    "refresh_mode": "AUTO",
+    "refresh_frequency": 24,
+    "refresh_unit": "hours",
+    "tag_history": true
 }

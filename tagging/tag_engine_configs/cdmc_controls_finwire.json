@@ -1,7 +1,7 @@
 {
-    "template_id": "cdmc_controls",
-    "template_project": "PROJECT_ID_GOV",
-    "template_region": "REGION",
+    "aspect_type_id": "cdmc-controls",
+    "aspect_type_project": "PROJECT_ID_DATA",
+    "aspect_type_region": "REGION",
     "fields": [
         {
             "field_id": "is_sensitive",
@@ -61,7 +61,8 @@
 		}
     ],
     "included_tables_uris": "bigquery/project/PROJECT_ID_DATA/dataset/finwire/*",
-    "refresh_mode": "ON_DEMAND",
-    "tag_history": true,
-    "tag_stream": false
+    "refresh_mode": "AUTO",
+    "refresh_frequency": 24,
+    "refresh_unit": "hours",
+    "tag_history": true
 }
