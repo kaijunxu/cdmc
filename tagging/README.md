@@ -2,19 +2,24 @@
 
 The tagging aspects of the solution consist of four parts:
 
-1. Creating the Data Catalog tag templates and policy tag taxonomy
-1. Create the policy tables in BigQuery and the remote BigQuery functions
-1. Deploying and configuring Tag Engine
-1. Deploying and scheduling the tag update orchestration workflow
+1. Creating the Dataplex Universal Catalog aspect types and policy tag taxonomy
+2. Create the policy tables in BigQuery and the remote BigQuery functions
+3. Deploying and configuring Tag Engine
+4. Deploying and scheduling the tag update orchestration workflow
 
 This guide assumes that you have already completed the data ingestion deployment, the data scanning deployment, and the data quality deployment.
 
-#### Part 1: Data Catalog tag templates and policy tag taxonomy
+Helper scripts are provided for some of the steps below:
+- [setup.sh](setup.sh) will create Dataplex Universal Catalog aspect types, policy tag taxonomy, and policy tables (steps 1-3 below).
+- [setup_functions.sh](setup_functions.sh) will create the remote BigQuery functions (step 4 below).
+- [setup_tag_engine.sh](setup_tag_engine.sh) will deploy Tag Engine (step 5 below).
 
-1. Create the Data Catalog tag templates by running these commands:
+#### Part 1: Dataplex Universal Catalog aspect types and policy tag taxonomy
+
+1. Create the Dataplex Universal Catalog aspect types by running these commands:
 
 ```
-cd tag_templates
+cd aspect_types
 pip install -r requirements.txt
 python create_template.py $PROJECT_ID_DATA $REGION cdmc_controls.yaml
 python create_template.py $PROJECT_ID_DATA $REGION completeness_template.yaml
@@ -77,19 +82,7 @@ export IAM_TOKEN=$(gcloud auth print-identity-token)
 export OAUTH_TOKEN=$(gcloud auth application-default print-access-token)
 ```
 
-7. Configure tag history:
-
-```
-curl -X POST $TAG_ENGINE_URL/configure_tag_history \
-	-d '{"bigquery_region":"$REGION", "bigquery_project":"$PROJECT_ID_GOV", "bigquery_dataset":"tag_history_logs", "enabled":true}' \
-	-H "Authorization: Bearer $IAM_TOKEN" \
-	-H "oauth_token: $OAUTH_TOKEN"
-```
-
-Replace the `bigquery_region`, `bigquery_project`, and `bigquery_dataset` with your own values.
-
-
-8. Create the tag engine configurations:
+7. Create the tag engine configurations:
 
 ```
 curl -X POST $TAG_ENGINE_URL/create_sensitive_column_config \
@@ -284,9 +277,9 @@ curl -X POST $TAG_ENGINE_URL/create_export_config \
 
 #### Part 4: Tag update orchestration
 
-9. Enable the Cloud Workflows API.
+8. Enable the Cloud Workflows API.
 
-10. Open each yaml file under the `/orchestration` folder, and replace the `config_uuid` values starting on line 9 with the actual values you received from the previous step when creating the configs. You'll also need to replace the project id values in the `caller_workflow.yaml` file.
+9. Open each yaml file under the `/orchestration` folder, and replace the `config_uuid` values starting on line 9 with the actual values you received from the previous step when creating the configs. You'll also need to replace the project id values in the `caller_workflow.yaml` file.
 
 10. Deploy the workflows:
 
