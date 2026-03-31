@@ -17,13 +17,13 @@ aspect_type:
   display_name: "Data Sensitivity Template"
   description: "Data Sensitivity Aspect Type"
   fields:
-    - field: sensitive-field
+    - field: sensitive_field
       type: bool
       display: "Sensitive field"
       description: "Field has sensitive information, such as PII"
       required: true
       order: 2
-    - field: sensitive-type
+    - field: sensitive_type
       type: enum
       values: Sensitive_Personal_Identifiable_Information|Personal_Identifiable_Information|Sensitive_Personal_Information|Personal_Information|Public_Information
       display: "Sensitive type"

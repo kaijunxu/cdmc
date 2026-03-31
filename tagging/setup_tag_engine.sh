@@ -63,22 +63,6 @@ gcloud projects add-iam-policy-binding $TAG_ENGINE_PROJECT \
 
 gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \
 --member=serviceAccount:$TAG_CREATOR_SA \
---role=roles/datacatalog.tagEditor
-
-gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \
---member=serviceAccount:$TAG_CREATOR_SA \
---role=roles/datacatalog.tagTemplateUser
-
-gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \
---member=serviceAccount:$TAG_CREATOR_SA \
---role=roles/datacatalog.tagTemplateViewer
-
-gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \
---member=serviceAccount:$TAG_CREATOR_SA \
---role=roles/datacatalog.viewer
-
-gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \
---member=serviceAccount:$TAG_CREATOR_SA \
 --role=roles/dataplex.aspectTypeUser
 
 gcloud projects add-iam-policy-binding $PROJECT_ID_DATA \

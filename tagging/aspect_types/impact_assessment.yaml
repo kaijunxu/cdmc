@@ -17,32 +17,32 @@ aspect_type:
   display_name: "Impact Assessment Template"
   description: "Impact Assessment Aspect Type"
   fields:
-    - field: subject-locations
+    - field: subject_locations
       type: string
       display: "Subject locations"
       description: "The location of the subjects referred to by the data in this asset (control 10)"
       order: 6
-    - field: is-dpia
+    - field: is_dpia
       type: bool
       display: "Is DPIA impact assessment"
       description: "Is there a DPIA assessment for this asset (control 10)"
       order: 5
-    - field: is-pia
+    - field: is_pia
       type: bool
       display: "Is PIA impact assessment"
       description: "Is there a PIA assessment for this asset (control 10)"
       order: 4
-    - field: impact-assessment-reports
+    - field: impact_assessment_reports
       type: string
       display: "Impact assessment reports"
       description: "Links to the impact assessment reports (control 10)"
       order: 3
-    - field: most-recent-assessment
+    - field: most_recent_assessment
       type: datetime
       display: "Most recent impact assessment"
       description: "Date of the most recent assessment produced (control 10)"
       order: 2
-    - field: oldest-assessment
+    - field: oldest_assessment
       type: datetime
       display: "Oldest impact assessment"
       description: "Date of the oldest assessment produced (control 10)"

@@ -17,32 +17,32 @@ aspect_type:
   display_name: "Cost Metrics Template"
   description: "Cost Metrics Aspect Type"
   fields:
-    - field: total-query-bytes-billed
+    - field: total_query_bytes_billed
       type: double
       display: "Total query bytes billed"
       description: "Total query bytes billed for this data asset since start of current month (control 13)"
       order: 6
-    - field: total-storage-bytes-billed
+    - field: total_storage_bytes_billed
       type: double
       display: "Total storage bytes billed"
       description: "The storage bytes billed for this data asset, includes active and long-term physical storage (control 13)"
       order: 5
-    - field: total-bytes-transferred
+    - field: total_bytes_transferred
       type: double
       display: "Total bytes transferred"
       description: "The sum of bytes transferred cross-region into this data asset (control 13)"
       order: 4
-    - field: estimated-query-cost
+    - field: estimated_query_cost
       type: double
       display: "Estimated query cost"
       description: "Estimated query cost in USD for this data asset for current month (control 13)"
       order: 3
-    - field: estimated-storage-cost
+    - field: estimated_storage_cost
       type: double
       display: "Estimated storage cost"
       description: "Estimated storage cost in USD for this data asset for current month (control 13)"
       order: 2
-    - field: estimated-egress-cost
+    - field: estimated_egress_cost
       type: double
       display: "Estimated egress cost"
       description: "Estimated egress in USD for current month in which data asset was used as a destination table (control 13)"

@@ -17,13 +17,13 @@ aspect_type:
   display_name: "Security Policy Template"
   description: "Security Policy Aspect Type"
   fields:
-    - field: platform-deid-method
+    - field: platform_deid_method
       type: string
       display: "Platform deidentification method"
       description: "Platform deidentification method also known as BQ data masking policy (control 9)"
       required: false
       order: 2
-    - field: app-deid-method
+    - field: app_deid_method
       type: string
       display: "Application deidentification method"
       description: "This field is populated when data is ingested through Dataflow job from SDW Blueprint. Not currently in use"

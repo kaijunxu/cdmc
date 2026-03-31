@@ -17,7 +17,7 @@ aspect_type:
   display_name: "Correctness Template"
   description: "Correctness Aspect Type"
   fields:
-    - field: column-name
+    - field: column_name
       type: string
       display: "column name"
       description: "The name of the column that this metric applies to"
@@ -29,31 +29,31 @@ aspect_type:
       description: "The name of the metric or quality rule (corresponds to the rule_id from the CloudDQ summary table)"
       required: false
       order: 6
-    - field: rows-validated
+    - field: rows_validated
       type: double
       display: "rows_validated"
       description: "The number of rows validated"
       required: false
       order: 5
-    - field: success-percentage
+    - field: success_percentage
       type: double
       display: "success_percentage"
       description: "The percentage of values which satisfy the metric"
       required: false
       order: 4
-    - field: acceptable-threshold
+    - field: acceptable_threshold
       type: double
       display: "acceptable threshold"
       description: "The acceptable threshold for this metric"
       required: false
       order: 3
-    - field: meets-threshold
+    - field: meets_threshold
       type: bool
       display: "meets threshold"
       description: "Whether the quality score (success percentage) meets the acceptable threshold"
       required: false
       order: 2
-    - field: most-recent-run
+    - field: most_recent_run
       type: datetime
       display: "most recent run"
       description: "The most recent time that the quality rule was run"

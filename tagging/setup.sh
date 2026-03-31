@@ -25,7 +25,7 @@ popd
 echo -e "#### Part 1: Data Catalog tag templates and policy tag taxonomy"
 echo -e "1. Create the Data Catalog tag templates"
 
-pushd tag_templates
+pushd aspect_types
 pip install -r requirements.txt
 python create_template.py $PROJECT_ID_DATA $REGION cdmc_controls.yaml
 python create_template.py $PROJECT_ID_DATA $REGION completeness_template.yaml
